@@ -23,3 +23,4 @@ TO DO:
 * Go through each individual submission and save in an alternate folder a new file with the filename as 'SubmissionID' + 'Author' + 'Tobacco Blend', since this would make everything much easier to actually view.
 * Remove any stray files in the submissions - I think theres a few in there that aren't really reviews but got auto-flagged as 'Reviews'. 
 * Edit the search through the subreddit to look for the word 'review' in the title instead of looking for the flair. A much, much better way of going about this. (Thanks u/FuguSandwich!)
+* Pull 'Good stuff' from the sidebar. It would stink to lose the 'If you like X, try Y' posts and the FAQ. (Thanks u/Heliumiami!)
