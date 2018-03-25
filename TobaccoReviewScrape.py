@@ -92,7 +92,7 @@ def main():
     for submission in submissionList:
         submission.comments.replace_more(limit=0)
         submissionTitle = str(submission.id) + '_' + str(submission.author) + '_' + submission.title[:20].replace('/','-')
-        outputFileTitle = 'Reviews/' + submissionTitle.replace(' ', '_') + '.md'
+        outputFileTitle = 'Reviews/' + submissionTitle.replace(' ', '_') + '.txt'
         outputFile = open(outputFileTitle, 'w')
         outputFile.write(submission.title + '\nBy: ' + str(submission.author) + '\n---\n')
         outputFile.write(submission.selftext + '\n')
