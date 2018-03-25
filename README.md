@@ -17,3 +17,8 @@ All work contained within each review is the original work of the respected auth
 contact me if I need to remove something.
 
 u/SickWillie
+
+---
+TO DO:
+* Go through each individual submission and save in an alternate folder a new file with the filename as 'SubmissionID' + 'Author' + 'Tobacco Blend', since this would make everything much easier to actually view.
+* Remove any stray files in the submissions - I think theres a few in there that aren't really reviews but got auto-flagged as 'Reviews'. 
