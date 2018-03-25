@@ -69,7 +69,7 @@ def main():
     ###
     ### This scans a subreddit and creates SubmissionList.txt
     ###
-#   PipeTobaccoReviews = reddit.subreddit('pipetobacco').submissions()
+#   PipeTobaccoReviews = reddit.subreddit('pipetobacco').submissions(1325376055,1522013635) # Added timestamp start/end information (thanks u/VilaFrancaWeimar for the idea!)
 #   n = 1
 #   for submission in PipeTobaccoReviews:
 #       if submission.link_flair_css_class == 'Review':
