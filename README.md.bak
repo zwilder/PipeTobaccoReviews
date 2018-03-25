@@ -3,8 +3,7 @@
 Contained within the 'Reviews' folder is all 476 submissions to r/pipetobacco that were flagged with the 'Review' flair along with their comments from the past
 six years.
 
-The SubmissionList.txt is a list of all 476 submission ID numbers, in case anyone wants them. TobaccoReviewScraper.py is the magic script, please excuse any
-silliness in there or general bad programming - I have no idea what I'm doing (I call this style of programming 'Brute Force Python').
+The SubmissionList.txt is a list of all 476 submission ID numbers, in case anyone wants them.
 
 The impending doom of r/PipeTobacco led me to pretend I knew how to use python and write a simple script to scrape review data from the subreddit. This was
 done mostly to help facilitate the migration of data from r/PipeTobacco to a new home, and was done without the consent of the moderators of that fine subreddit.
