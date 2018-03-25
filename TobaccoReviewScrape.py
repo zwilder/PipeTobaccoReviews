@@ -1,5 +1,35 @@
+###
+ # PipeTobaccoReviewScrape.py
+ # Z Wilder - 2018
+
+ # MIT License
+
+ # Copyright (c) 2018 Zach D Wilder
+
+ # Permission is hereby granted, free of charge, to any person obtaining a copy
+ # of this software and associated documentation files (the "Software"), to deal
+ # in the Software without restriction, including without limitation the rights
+ # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ # copies of the Software, and to permit persons to whom the Software is
+ # furnished to do so, subject to the following conditions:
+
+ # The above copyright notice and this permission notice shall be included in all
+ # copies or substantial portions of the Software.
+
+ # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ # SOFTWARE.
+###
+
 import praw
 
+###
+# This class provides the recursion necessary to display comments in proper conversational order, as opposed to the BFS supplied by PRAW
+###
 class wComment:
     def __init__(self, seed):
         self.parent = str(seed.parent())
@@ -17,9 +47,6 @@ class wComment:
                 child.display(outputFile)
     
 def main():
-###
-# Beginning message
-###
     print("Beginning scrape...")
 
 ###
@@ -42,21 +69,20 @@ def main():
     ###
     ### This scans a subreddit and creates SubmissionList.txt
     ###
-    # PipeTobaccoReviews = reddit.subreddit('pipetobacco').submissions()
-    # n = 1
-    # for submission in PipeTobaccoReviews:
-        # if submission.link_flair_css_class == 'Review':
-            # submissionList.append(submission)
-        # n += 1
-        # if (n % 1000) == 0:
-            # print('Scanned ' + str(n) + ' submissions.')
+#   PipeTobaccoReviews = reddit.subreddit('pipetobacco').submissions()
+#   n = 1
+#   for submission in PipeTobaccoReviews:
+#       if submission.link_flair_css_class == 'Review':
+#           submissionList.append(submission)
+#       n += 1
+#       if (n % 1000) == 0:
+#           print('Scanned ' + str(n) + ' submissions.')
 
 
-    # subFile = open('SubmissionList.txt', 'w')
-    # for submission in submissionList:
-        # subFile.write(str(submission.id) + '\n')
-    # subFile.close()
-    # submission = reddit.submission(id='828306') # Just a test review post
+#   subFile = open('SubmissionList.txt', 'w')
+#   for submission in submissionList:
+#       subFile.write(str(submission.id) + '\n')
+#   subFile.close()
 
 ###
 # The below code loops through each submission, outputting each submission to an individual text file with the self-text and every comment in the 
@@ -83,9 +109,6 @@ def main():
         if (n % 10) == 0:
             print('Wrote ' + str(n) + ' files.')
 
-###
-# Finished message
-###
     print("Scrape complete.")
 
 if __name__ == '__main__':
