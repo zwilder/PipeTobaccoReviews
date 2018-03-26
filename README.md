@@ -1,7 +1,7 @@
 # PipeTobaccoReviews
 
 Contained within the 'Reviews' folder is all 476 submissions to r/pipetobacco that were flagged with the 'Review' flair along with their comments from the past
-six years.
+six years. The ReviewsByBlend folder contains the same Reviews, except with a logical filename to make searching through them easier.
 
 The SubmissionList.txt is a list of all 476 submission ID numbers, in case anyone wants them. TobaccoReviewScraper.py is the magic script, please excuse any
 silliness in there or general bad programming - I have no idea what I'm doing (I call this style of programming 'Brute Force Python').
@@ -20,7 +20,7 @@ _u/SickWillie_
 
 ---
 TO DO:
-* Go through each individual submission and save in an alternate folder a new file with the filename as 'SubmissionID' + 'Author' + 'Tobacco Blend', since this would make everything much easier to actually view.
+* Go through each individual submission and save in an alternate folder a new file with the filename as 'Author' + 'Tobacco Blend'  + 'SubmissionID', since this would make everything much easier to actually view.
 * Remove any stray files in the submissions - I think theres a few in there that aren't really reviews but got auto-flagged as 'Reviews'. 
 * Edit the search through the subreddit to look for the word 'review' in the title instead of looking for the flair. A much, much better way of going about this. (Thanks u/FuguSandwich!)
 * Pull 'Good stuff' from the sidebar. It would stink to lose the 'If you like X, try Y' posts and the FAQ. (Thanks u/Heliumiami!)
