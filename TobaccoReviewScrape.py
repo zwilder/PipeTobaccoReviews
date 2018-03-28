@@ -72,14 +72,14 @@ def main():
 #   PipeTobaccoReviews = reddit.subreddit('pipetobacco').submissions(1325376055,1522013635) # Added timestamp start/end information (thanks u/VilaFrancaWeimar for the idea!)
 #   n = 1
 #   for submission in PipeTobaccoReviews:
-#       if submission.link_flair_css_class == 'Review':
+#       if (submission.link_flair_css_class == 'Review') or ('review' in submission.title) or ('Review' in submission.title) or ('REVIEW' in submission.title):
 #           submissionList.append(submission)
 #       n += 1
-#       if (n % 1000) == 0:
+#       if (n % 10) == 0:
 #           print('Scanned ' + str(n) + ' submissions.')
 
 
-#   subFile = open('SubmissionList.txt', 'w')
+#   subFile = open('SubmissionList_new.txt', 'w')
 #   for submission in submissionList:
 #       subFile.write(str(submission.id) + '\n')
 #   subFile.close()
