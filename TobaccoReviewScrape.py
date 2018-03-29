@@ -72,13 +72,25 @@ def main():
 #   PipeTobaccoReviews = reddit.subreddit('pipetobacco').submissions(1325376055,1522013635) # Added timestamp start/end information (thanks u/VilaFrancaWeimar for the idea!)
 #   n = 1
 #   for submission in PipeTobaccoReviews:
-#       if (submission.link_flair_css_class == 'Review') or ('review' in submission.title) or ('Review' in submission.title) or ('REVIEW' in submission.title):
+        ###
+        ### These next three are just True/False shortcuts added for readability
+        ###
+#       containsReview = ('review' in submission.title) or ('Review' in submission.title) or ('REVIEW' in submission.title)
+#       containsFirstImpressions = ('first impressions' in submission.title) or ('First Impressions' in submission.title) or ('First impressions' in submission.title)
+#       reviewFlair = (submission.link_flair_css_class == 'Review')
+#       if reviewFlair or containsReview or containsFirstImpressions:
 #           submissionList.append(submission)
+        ###
+        ### Lines 86-88 Print something out every n % x submissions so that the user knows something is happening
+        ###
 #       n += 1
-#       if (n % 10) == 0:
+#       if (n % 100) == 0:
 #           print('Scanned ' + str(n) + ' submissions.')
 
 
+    ###
+    ### 94-97 Write the scanned submissions to a file, this was originally added so I wouldn't have to wait forever to rescan submissions
+    ###
 #   subFile = open('SubmissionList_new.txt', 'w')
 #   for submission in submissionList:
 #       subFile.write(str(submission.id) + '\n')
@@ -91,20 +103,37 @@ def main():
     n = 1
     for submission in submissionList:
         submission.comments.replace_more(limit=0)
+        ###
+        ### The submissionTitle is basically "SubmissionID_Author_First20OfTitle" - not ideal, but  since figuring out the blend requires human input
+        ### figured this was the best way to go.
+        ###
         submissionTitle = str(submission.id) + '_' + str(submission.author) + '_' + submission.title[:20].replace('/','-')
+        
+        ###
+        ### 116-119 Write the file, then create the header and body of the file with the submission title, author, and self text.
+        ### The selftext is needed for text submissions, since some reviews were done in the comments with a sweet picture in the post.
+        ###
         outputFileTitle = 'Reviews/' + submissionTitle.replace(' ', '_') + '.txt'
         outputFile = open(outputFileTitle, 'w')
         outputFile.write(submission.title + '\nBy: ' + str(submission.author) + '\n---\n')
         outputFile.write(submission.selftext + '\n')
+
+        ###
+        ### 124-127 Gets the comments to print in a logical, question/response conversation order which required the hackery of the wComment class.
+        ###
         commentdict = {}
         for comment in submission.comments:
             if str(comment.parent()) not in commentdict:
                 commentdict[comment.id] = wComment(comment) 
 
+        ###
+        ### 132-135 Writes the comments to the file under the head and self text. The "36*'='" is a cheap way to make a nice spacer inbetween comments
+        ###
         for ogID, ogMsg in commentdict.items():
             outputFile.write(36*'=' + '\n')
             ogMsg.display(outputFile)
         outputFile.close()
+
         n += 1
         if (n % 10) == 0:
             print('Wrote ' + str(n) + ' files.')
